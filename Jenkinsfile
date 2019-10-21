@@ -28,11 +28,11 @@ pipeline {
                         sh  '''
                             docker login --username ${NEXUS_USER} --password ${NEXUS_PASSWORD} ${NEXUS_URL}
                             
-                            docker tag securiport/kafka:${BUILD_TAG} ${NEXUS_URL}/securiport/kafka:${BUILD_TAG}
-                            docker tag securiport/kafka:${BUILD_TAG} ${NEXUS_URL}/securiport/kafka:2.12-2.1.0
+                            docker tag securiport/kafka:${BUILD_TAG} ${NEXUS_URL}/infra/kafka:${BUILD_TAG}
+                            docker tag securiport/kafka:${BUILD_TAG} ${NEXUS_URL}/infra/kafka:2.12-2.1.0
                             
-                            docker push ${NEXUS_URL}/securiport/kafka:${BUILD_TAG}
-                            docker push ${NEXUS_URL}/securiport/kafka:2.12-2.1.0
+                            docker push ${NEXUS_URL}/securiport/infra:${BUILD_TAG}
+                            docker push ${NEXUS_URL}/securiport/infra:2.12-2.1.0
                            
                             '''
                     } catch(Exception e) {
